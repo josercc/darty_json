@@ -12,7 +12,7 @@
 如果按照系统自带的获取对应的值
 
 ```dart
-int? a = jsonObject['a'] as? int;
+int? a = jsonObject['a'] as int?;
 ```
 
 此时如果返回的数据变更如下
