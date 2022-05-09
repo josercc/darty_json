@@ -1,7 +1,7 @@
-name: darty_json
-description: A starting point for Dart libraries or applications.
-version: 1.0.0
-# homepage: https://www.example.com
+name: darty_json_safe
+description: 一款仿照 SwiftyJSON 的 Dart 数据解析库(A dart data parsing library modeled on swiftyjson)
+version: 0.0.1
+homepage: https://github.com/josercc/darty_json
 
 environment:
   sdk: '>=2.16.2 <3.0.0'

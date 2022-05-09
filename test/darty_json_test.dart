@@ -1,4 +1,4 @@
-import 'package:darty_json/darty_json.dart';
+import 'package:darty_json_safe/darty_json.dart';
 import 'package:test/test.dart';
 
 void main() {
