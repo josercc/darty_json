@@ -172,7 +172,7 @@ extension JSONToInt on JSON {
   /// 转换为一个可能为空的int类型
   JSONInt? get int {
     if (rawValue is bool) return rawValue ? 1 : 0;
-    return JSONInt.tryParse(rawValue.toString());
+    return this.double?.toInt();
   }
 
   /// 转换为一个默认为为0 不为空的int类型

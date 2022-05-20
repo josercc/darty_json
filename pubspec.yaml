@@ -1,6 +1,6 @@
 name: darty_json_safe
-description: 一款仿照 SwiftyJSON 的 Dart 数据解析库(A dart data parsing library modeled on swiftyjson)
-version: 0.0.1
+description: A dart data parsing library modeled on swiftyjson
+version: 0.0.2
 homepage: https://github.com/josercc/darty_json
 
 environment:

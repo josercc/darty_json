@@ -42,12 +42,20 @@ void main() {
       expect(JSON(1.1).stringValue, '1.1');
       expect(JSON(true).intValue, 1);
       expect(JSON('1').stringValue, '1');
+      expect(JSON({}).string, '{}');
+      expect(JSON([]).string, '[]');
+
+      expect(JSON(1).int, 1);
+      expect(JSON({}).int, null);
+
+      expect(JSON(1).numValue, 1);
     });
 
     /// 测试超出边界
     test('index out of range', () {
       final JSON json = JSON('[1,2,3]');
-      expect(json[3].int, null);
+      final value =  json[3].int;
+      expect(value, null);
     });
 
     test('test foreach list', () {
@@ -129,6 +137,26 @@ void main() {
       final json = JSON(jsonText);
       json[['list', 0, 'user', 'name']] = 'new value';
       expect(json['list'][0]['user']['name'].stringValue, 'new value');
+    });
+
+    /// 测试是否是isDouble
+    test('test is double', (){
+      final json = JSON('1');
+      expect(json.isDouble, true);
+    });
+
+    test('test is int', (){
+      final json = JSON('1');
+      expect(json.isInt, true);
+    });
+
+    test('test int to bool', (){
+      final json = JSON('1');
+      expect(json.boolValue, true);
+    });
+
+    test('test is bool', (){
+      expect(JSON('1').isBool, true);
     });
   });
 }
