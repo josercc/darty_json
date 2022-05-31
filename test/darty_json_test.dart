@@ -158,5 +158,32 @@ void main() {
     test('test is bool', (){
       expect(JSON('1').isBool, true);
     });
+
+    test('test is num', (){
+      expect(JSON(0.0).isNum, true);
+    });
+
+    test('test is list', (){
+      expect(JSON([]).isList, true);
+    });
+
+    test('test is map', (){
+      expect(JSON({}).isMap, true);
+    });
+
+    test('test is string', (){
+      expect(JSON('').isString, true);
+    });
+    
+    test('to json', (){
+      expect(2.json.string, '2');
+      expect(2.2.json.string, '2.2');
+      expect(true.json.string, 'true');
+      expect({}.json.string,'{}');
+      expect([].json.string, '[]');
+
+      num number = 1;
+      expect(number.json.string, '1');
+    });
   });
 }

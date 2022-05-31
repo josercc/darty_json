@@ -19,3 +19,4 @@ export 'src/json.dart'
         NumberToJSON,
         ListToJSON,
         MapToJSON;
+export 'src/unwrap.dart';
