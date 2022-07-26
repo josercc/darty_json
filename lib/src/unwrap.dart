@@ -1,3 +1,5 @@
+import 'dart:async';
+
 /// 解包转换
 class Unwrap<T> {
   /// 包的值
@@ -13,5 +15,9 @@ class Unwrap<T> {
     final value = this.value;
     if (value == null) return Unwrap<S>(null);
     return Unwrap<S>(callback(value));
+  }
+
+  T defaultValue(T value) {
+    return this.value ?? value;
   }
 }

@@ -1,3 +1,12 @@
+- 0.2.0
+
+Unwrap adds a new DefaultValue method to set the default value
+
+```dart
+final value = Unwrap(null).map((e) => "hello $e").defaultValue("");
+/// value is ""
+```
+
 - 0.1.0
 
 * New 'Unwrap' class for unpacking
