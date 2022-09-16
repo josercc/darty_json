@@ -1,3 +1,5 @@
+import 'json.dart';
+
 /// 解包转换
 class Unwrap<T> {
   /// 包的值
@@ -18,4 +20,6 @@ class Unwrap<T> {
   T defaultValue(T value) {
     return this.value ?? value;
   }
+
+  JSON get json => JSON(value);
 }

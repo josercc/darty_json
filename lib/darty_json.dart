@@ -1,4 +1,4 @@
-library darty_json;
+library darty_json_safe;
 
 export 'src/json.dart'
     show
