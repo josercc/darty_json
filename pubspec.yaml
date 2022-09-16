@@ -2,7 +2,7 @@ name: darty_json_safe
 description: A dart data parsing library modeled on swiftyjson
 version: 1.0.0
 homepage: https://github.com/josercc/darty_json
-public_to: https://pub.dartlang.org
+publish_to: https://pub.dartlang.org
 
 environment:
   sdk: '>=2.16.2 <3.0.0'
