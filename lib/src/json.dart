@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:darty_json_safe/darty_json.dart';
+import 'package:darty_json_safe/darty_json_safe.dart';
 import 'package:darty_json_safe/src/json_key.dart';
 
 typedef JSONDouble = double;

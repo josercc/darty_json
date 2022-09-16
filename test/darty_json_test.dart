@@ -1,4 +1,4 @@
-import 'package:darty_json_safe/darty_json.dart';
+import 'package:darty_json_safe/darty_json_safe.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -54,7 +54,7 @@ void main() {
     /// 测试超出边界
     test('index out of range', () {
       final JSON json = JSON('[1,2,3]');
-      final value =  json[3].int;
+      final value = json[3].int;
       expect(value, null);
     });
 
@@ -140,46 +140,46 @@ void main() {
     });
 
     /// 测试是否是isDouble
-    test('test is double', (){
+    test('test is double', () {
       final json = JSON('1');
       expect(json.isDouble, true);
     });
 
-    test('test is int', (){
+    test('test is int', () {
       final json = JSON('1');
       expect(json.isInt, true);
     });
 
-    test('test int to bool', (){
+    test('test int to bool', () {
       final json = JSON('1');
       expect(json.boolValue, true);
     });
 
-    test('test is bool', (){
+    test('test is bool', () {
       expect(JSON('1').isBool, true);
     });
 
-    test('test is num', (){
+    test('test is num', () {
       expect(JSON(0.0).isNum, true);
     });
 
-    test('test is list', (){
+    test('test is list', () {
       expect(JSON([]).isList, true);
     });
 
-    test('test is map', (){
+    test('test is map', () {
       expect(JSON({}).isMap, true);
     });
 
-    test('test is string', (){
+    test('test is string', () {
       expect(JSON('').isString, true);
     });
-    
-    test('to json', (){
+
+    test('to json', () {
       expect(2.json.string, '2');
       expect(2.2.json.string, '2.2');
       expect(true.json.string, 'true');
-      expect({}.json.string,'{}');
+      expect({}.json.string, '{}');
       expect([].json.string, '[]');
 
       num number = 1;
