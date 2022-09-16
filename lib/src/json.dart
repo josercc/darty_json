@@ -42,7 +42,7 @@ class JSON {
     if (json != null) return json;
 
     /// 获取不到返回空的JSON
-    return JSON();
+    return JSON(null);
   }
 
   /// 根据[key] 更新[value]
@@ -156,7 +156,7 @@ extension JSONToDouble on JSON {
   /// 转换为一个可能为空的double类型
   JSONDouble? get double {
     if (rawValue is bool) return rawValue ? 1 : 0;
-    return JSONDouble.tryParse(rawValue.toString());
+    return JSONDouble.tryParse(stringValue);
   }
 
   /// 转换为一个默认为为0 不为空的double类型
@@ -172,7 +172,7 @@ extension JSONToInt on JSON {
   /// 转换为一个可能为空的int类型
   JSONInt? get int {
     if (rawValue is bool) return rawValue ? 1 : 0;
-    return this.double?.toInt();
+    return JSONInt.tryParse(stringValue);
   }
 
   /// 转换为一个默认为为0 不为空的int类型
@@ -189,7 +189,7 @@ extension JSONToBool on JSON {
   JSONBool? get bool {
     final intValue = this.int;
     if (intValue == null) return null;
-    return intValue == 0 ? false : true;
+    return intValue == 1;
   }
 
   /// 转换为一个默认为为false 不为空的bool类型
@@ -205,7 +205,7 @@ extension JSONToNumber on JSON {
   /// 转换为一个可能为空的Number类型
   JSONNum? get num {
     if (rawValue is bool) return rawValue ? 1 : 0;
-    return JSONNum.tryParse(rawValue.toString());
+    return JSONNum.tryParse('$rawValue');
   }
 
   /// 转换为一个默认为为0 不为空的Number类型
@@ -242,7 +242,7 @@ extension JSONToMap on JSON {
     if (rawValue is String) {
       return JSON(jsonDecode(rawValue)).map;
     }
-    if (rawValue is! Map) return null;
+    if (rawValue is! JSONObject) return null;
     return rawValue;
   }
 
@@ -257,10 +257,10 @@ extension JSONToMap on JSON {
 extension JSONToString on JSON {
   /// 转换为一个可能为空的String类型
   JSONString? get string {
-    if (rawValue is JSONDouble) return rawValue.toString();
-    if (rawValue is JSONInt) return rawValue.toString();
-    if (rawValue is JSONBool) return rawValue.toString();
-    if (rawValue is JSONNum) return rawValue.toString();
+    if (rawValue is JSONDouble) return '$rawValue';
+    if (rawValue is JSONInt) return '$rawValue';
+    if (rawValue is JSONBool) return '$rawValue';
+    if (rawValue is JSONNum) return '$rawValue';
     if (rawValue is String) return rawValue;
     if (rawValue is JSONArray) return jsonEncode(rawValue);
     if (rawValue is JSONObject) return jsonEncode(rawValue);
