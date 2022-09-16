@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:darty_json_safe/darty_json.dart';
 import 'package:darty_json_safe/src/json_key.dart';
 
 typedef JSONDouble = double;
@@ -87,6 +88,13 @@ class JSON {
     if (key == null) return;
     key.parentJSON[key.key] = value;
   }
+
+  T? as<T>() {
+    if (rawValue is! T) return null;
+    return (rawValue as T);
+  }
+
+  Unwrap<S> unwrap<S>() => Unwrap(as<S>());
 }
 
 extension JSONGetOperations on JSON {
