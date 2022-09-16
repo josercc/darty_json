@@ -1,3 +1,7 @@
+- 1.0.1
+
+  fix 1.0.0 error
+
 - 1.0.0
 
   修改库名字 darty_json to darty_json_safe
