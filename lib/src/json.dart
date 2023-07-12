@@ -116,8 +116,8 @@ extension JSONGetOperations on JSON {
   }
 
   JSON? tryFromKeyPath(dynamic key) {
-    final keyPaths = JSON(key).list;
-    if (keyPaths == null) return null;
+    if (key is! JSONArray) return null;
+    final keyPaths = key;
     JSON? json = this;
     for (var i = 0; i < keyPaths.length; i++) {
       if (json == null) return null;
@@ -229,7 +229,11 @@ extension JSONToArray on JSON {
   /// 转换为一个可能为空的Array类型
   JSONArray? get list {
     if (rawValue is String) {
-      return JSON(jsonDecode(rawValue)).list;
+      try {
+        return JSON(jsonDecode(rawValue)).list;
+      } catch (e) {
+        return null;
+      }
     }
     if (rawValue is! JSONArray) return null;
     return rawValue;
